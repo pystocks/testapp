@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     libxcb-render-util0 \
     libxcb-xkb1 \
     libxkbcommon-x11-0 \
+    qt5-default \
     && rm -rf /var/lib/apt/lists/*
 
 # Set environment variable to use offscreen rendering
@@ -28,3 +29,4 @@ COPY . .
 
 # Command to run the application
 CMD ["python", "piranha.py"]
+
