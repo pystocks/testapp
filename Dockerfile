@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
 # Install system dependencies including Qt and XCB dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libxcb-cursor0 \
     libxcb-xinerama0 \
     libxcb-icccm4 \
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     libxcb-render-util0 \
     libxcb-xkb1 \
     libxkbcommon-x11-0 \
-    qt5-default \
+    qtbase5-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Set environment variable to use offscreen rendering
@@ -29,4 +29,5 @@ COPY . .
 
 # Command to run the application
 CMD ["python", "piranha.py"]
+
 
